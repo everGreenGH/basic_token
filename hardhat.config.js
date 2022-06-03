@@ -1,3 +1,18 @@
+// Goerli Test Network
+ 
+// module.exports = {
+//   solidity: {
+//     version: "0.8.4",
+//   }, 
+//   networks: {
+//     goerli: {
+//       url: `https://eth-goerli.alchemyapi.io/v2/${alchemyApiKey}`,
+//       chainId: 5, 
+//       accounts: [privateKey]
+//     },
+//   }
+// };
+
 const { alchemyApiKey, etherscanApiKey, privateKey } = require('./secrets.json');
 
 require("@nomiclabs/hardhat-waffle");
@@ -16,9 +31,9 @@ module.exports = {
     version: "0.8.4",
   }, 
   networks: {
-    goerli: {
-      url: `https://eth-goerli.alchemyapi.io/v2/${alchemyApiKey}`,
-      chainId: 5, 
+    rinkeby: {
+      url: `https://eth-rinkeby.alchemyapi.io/v2/${alchemyApiKey}`,
+      chainId: 4, 
       accounts: [privateKey]
     },
   }
