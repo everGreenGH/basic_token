@@ -1,4 +1,4 @@
-#4주차: HardHat 개발환경 구축 실습
+# 4주차: HardHat 개발환경 구축 실습
 
 Notion: https://smart-top-7ea.notion.site/4-HardHat-76d8a5c9b68a45608c621549d6570c7d
 
