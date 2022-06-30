@@ -1,6 +1,6 @@
-![사진출처: [https://hardhat.org/](https://hardhat.org/)](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2f3495cd-d788-4463-9453-98336bfcecce/Untitled.png)
+#4주차: HardHat 개발환경 구축 실습
 
-사진출처: [https://hardhat.org/](https://hardhat.org/)
+Notion: https://smart-top-7ea.notion.site/4-HardHat-76d8a5c9b68a45608c621549d6570c7d
 
 4주차에는 **Hardhat 개발 환경 도구 구축 방법**을 알아보고, ERC-20 표준을 따르는 MyToken 토큰을 생성하여 **대략적으로 컨트랙트의 배포 과정**에 대하여 살펴볼 것입니다. 4주차에서는 각각의 코드의 의미를 이해하기보다는, MyToken 컨트랙트의 배포라는 간단한 예제를 통하여 컨트랙트 배포의 전반적인 흐름을 이해하는 것을 목표로 합니다. 각각의 흐름들에 대해서는 5주차, 6주차에 좀 더 자세하게 다룰 것입니다.
 
@@ -16,8 +16,6 @@ npm i hardhat --dev
 ```
 
 Basic Sample Project를 생성하세요.
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4346642f-c570-4ef5-bbfe-e5b47c895534/Untitled.png)
 
 오픈제플린 라이브러리도 설치해주세요.
 
@@ -92,8 +90,6 @@ module.exports = {
 
 </aside>
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1c377917-180b-4c97-b8c2-ecaec7b62eb2/Untitled.png)
-
 로그인 시 위의 화면을 볼 수 있습니다. “+ create app” 버튼을 눌러서 이름과 설명을 작성한 후, Chain을 Ethereum으로 설정하고, Network를 본인이 설정한 테스트넷으로 설정합니다.
 
 ```jsx
@@ -113,7 +109,7 @@ module.exports = {
 };
 ```
 
-이제 module.exports 부를 작성할 수 있습니다. 이때, Alchemy의 ApiKey나 Metamask의 개인키와 같은 개인 정보를 공개된 코드에 작성하는 것은 위험하기 때문에, **secrets.json 파일을 작성한 후 해당 파일에 ApiKey와 개잍키를 작성한 후, 해당 파일을 import하여 사용하는 것이 안전합니다.** (secrets.json파일은 .gitignore에 추가하여 커밋 시 업로드되지 않도록 설정해 주세요.)
+이제 module.exports 부를 작성할 수 있습니다. 이때, Alchemy의 ApiKey나 Metamask의 개인키와 같은 개인 정보를 공개된 코드에 작성하는 것은 위험하기 때문에, **secrets.json 파일을 작성한 후 해당 파일에 ApiKey와 개인키를 작성한 후, 해당 파일을 import하여 사용하는 것이 안전합니다.** (secrets.json파일은 .gitignore에 추가하여 커밋 시 업로드되지 않도록 설정해 주세요.)
 
 ### MyToken.deploy.js 작성 및 컨트랙트 배포
 
@@ -158,13 +154,7 @@ npx hardhat compile
 npx hardhat run --network <네트워크이름> scripts/MyToken.deploy.js
 ```
 
-![배포 예시](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f432565d-ce86-4db4-acbc-accb9328c7bc/Untitled.png)
-
-배포 예시
-
 배포 시 위에서 설정한 console.log 양식에 맞추어 정보를 출력합니다. Alchemy에 접속하여 배포가 잘 이루어졌는지 확인합니다.
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/de5febce-30b8-46d5-a52b-797d69012854/Untitled.png)
 
 이와 같이 트랜잭션에 대한 정보를 확인할 수 있습니다. Contract Address 옆에 있는 컨트랙트 주소를 클릭하여, Etherscan에서 컨트랙트에 대한 정보를 볼 수 있습니다.
 
@@ -178,13 +168,5 @@ npx hardhat run --network <네트워크이름> scripts/MyToken.deploy.js
 Token Tracker는 ERC-20 기준을 준수하는 토큰에 대한 정보를 제공합니다. New Penguin Token, PNT가 잘 배포되었음을 확인할 수 있습니다.
 
 ### Metamask에서 토큰 확인하기
-
-![토큰 가져오기 클릭](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7cfa3280-f87e-4568-a8a5-686cfee14eef/Untitled.png)
-
-토큰 가져오기 클릭
-
-![토큰 정보 작성](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ed11d2f0-9750-46e1-9cbc-e032900110b1/Untitled.png)
-
-토큰 정보 작성
 
 Metamask에서 가장 아래쪽의 토큰 가져오기를 클릭하면, 직접 토큰 정보를 불러올 수 있습니다. 앞서 배포한 컨트랙트 주소를 토큰 계약 주소에 작성하면, 아래 정보들은 자동으로 채워집니다. 맞춤형 토큰 추가 버튼을 클릭하여, 위에서 만든 토큰에 대한 정보를 Metamask에서 불러올 수 있습니다.
